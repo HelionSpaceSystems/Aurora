@@ -206,7 +206,7 @@ nozzlePropertiesTitle = ['Expasion Ratio',
 injectorPropertiesTitle = ['Injector/Inlet Pressure Ratio',
                             'Injector Static Pressure [Pa]',
                             'Injector Temperature [K]']
-                      
+                            
 structureOutput = [stageMass[::-1],
                    emptyMasses[::-1],
                    propMass[::-1],

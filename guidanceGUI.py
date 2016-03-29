@@ -22,14 +22,24 @@ class Application(Frame):
                 print(results.get())
         
         self.inputs = []
-        launch_labels = ['Launch Site: ', 'Launch Date: ']
+        launch_labels = ['Launch Site: ', 'Launch Date: ', 'Payload Mass [kg]: ']
         atm_labels = ['Atmospheric Model: ', 'Wind Model: ']
         stage_labels = ['Vertical Ascent [s]: ', 'Coast Time [s]: ', 'Pitch Duration [s]: ', 'Burnout [s]: ', 'Engine Cutoff to Separation [s]: ']
         stage_tab_names = ['First Stage','Second Stage','Third Stage']
         tab_label_frames = ['Time Events','Aerodynamic Properties', 'Vehicle Properties']
-        control_label_frame_names = ['Launch Properties', 'Atmospheric Models', 'Stage Properties']
+        control_label_frame_names = ['Launch Properties', 'Desired Orbit','Atmospheric Models', 'Stage Properties']
         aero_labels = ['Lift Coeficient: ','Drag Coefficient: ','Referance Area [m^2]: ']
-        vehicle_labels = ['Vacuum Thrust [kN]: ','Mass Flow [kg/s]: ','Launch Wet Mass [kg]: ','Stage Dry Mass [kg]: ']
+        vehicle_labels = ['Fuel Type: ', 'Oxidizer: ','Mixture Ratio: ',
+                          'Payload Ratio: ','Exit Velocity [km/s]: ',
+                          'Ratio of Specific Heats: ','Chamber Temperature [k]: ',
+                          'Chamber Pressure [MPa]: ','Contraction Ratio: ',
+                          'Design Altitude [km]: ','Structural Ratio: ','Max G: ',
+                          'No. of Engines: ']
+                          
+        desiredOrbit_labels = ['Semimajor Axis [km]: ','Inclination [deg]: ',
+                               'RAAN [deg]: ','Argument of Perigee [deg]: ',
+                               'Angular Momentum [km^3/s^2]: ','Eccentricity: ',
+                               'True Anomaly: ']
       
         for j in range(0,len(control_label_frame_names)):
             
@@ -44,6 +54,12 @@ class Application(Frame):
                      self.label = Label(self.labelframe, text = launch_labels[k])
                      self.label.grid(row = k, padx = 5, pady = 5, sticky = 'NEWS')
                     
+            if control_label_frame_names[j] == 'Desired Orbit':
+                
+                for k in range(0,len(desiredOrbit_labels)):
+                     self.label = Label(self.labelframe, text = desiredOrbit_labels[k])
+                     self.label.grid(row = k, padx = 5, pady = 5, sticky = 'NEWS')
+                     
             if control_label_frame_names[j] == 'Atmospheric Models':
                 
                 for k in range(0,len(atm_labels)):

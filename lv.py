@@ -837,6 +837,9 @@ def lift(q,s,cl):
             
     return q*s*cl
 
+
+
+
         
             
 def expPressure(altitude):   
@@ -857,9 +860,7 @@ def expPressure(altitude):
     except ValueError:
         print ("Altitude must be any real number grater than zero")
         
-    
-
-    
+      
     
 def expdensity(altitude):
     
@@ -880,4 +881,50 @@ def expdensity(altitude):
         
     except ValueError:
         print ("Altitude must be any real number greater than zero")
+    
+
+
+
+def coe2sv(coe):
+    """ Function to determine the area ratio along a nozzle              
+
+    Parameters
+    ----------
+    mu : gravitational parameter (km^3/s^2)
+    coe : list of orbital elements [h,w,RA,incl,w,TA]
+        h: angular momentum (km^2/s)
+        e: eccentricity
+        RA: right ascension of the ascending node (rad)
+        incl: inclination (rad)
+        w: argument of perigee (rad)
+        TA: true anomaly (rad)
+    R3_w: rotation matrix abour the z axis through the angle w
+    R1_i: rotationa matrix about the x axis through the angle i
+    R3_W: rotation matrixabout the z axis through the angle RA
+    Q_pX: matric of the transformation from perifocal to geocentric equatorial frame
+    rp: position vector in the perifocal frame (km)
+    vp: velocity vector in the perifocal frame (km/s)
+
+        
+    Returns
+    -------
+    sv : {list} [r,v]
+        r: position vector in the geocentric equatorial frame (km)
+        v - velocity vector in the geocentric equatorial frame (km/s)
+ 
+ 
+    
+    See Also
+    --------
+    
+    Notes
+    -----
+
+    
+    Examples
+    --------
+    """  
+    
+    R3_w = np.matrix('cos(RA) sin(RA) 0;-sin(RA) cos(RA) 0;0 0 1')
+    print (R3_w)
     
